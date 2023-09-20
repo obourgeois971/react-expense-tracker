@@ -5,6 +5,7 @@ export const expenseSlice = createSlice({
   initialState: {
     income: 1000,
     expenseList: [],
+    countActionPreformed: 0,
   },
   reducers: {
     addExpense: (currentSlice, action) => {
@@ -18,9 +19,14 @@ export const expenseSlice = createSlice({
       currentSlice.income = Number.parseFloat(action.payload);
       console.log("setIncome()");
     },
+    incrementCountActionPerformed: (currentSlice, action) => {
+      currentSlice.countActionPreformed++;
+      console.log("incrementCountActionPerformed()");
+    },
   },
 });
 
-const { addExpense, setIncome } = expenseSlice.actions;
+const { addExpense, setIncome, incrementCountActionPerformed } =
+  expenseSlice.actions;
 
-export { addExpense, setIncome };
+export { addExpense, setIncome, incrementCountActionPerformed };
